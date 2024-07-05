@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bienvenido</title>
+  </head>
+  <body>
+    <h1>Bienvenido al portal de ansible</h1>
+    <form action="/run_playbook" method="post">
+      <label for="playbook">Elige tu playbook:</label><br>
+      <select id="playbook" name="playbook">
+        {% for playbook in playbooks %}
+        <option value="{{ playbook }}">{{ playbook }}</option>
+        {% endfor %}
+      </select><br><br>
+      <input type="submit" value="Ejecutar playbook">
+    </form>
+  </body>
+</html>

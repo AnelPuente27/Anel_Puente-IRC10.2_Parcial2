@@ -1,0 +1,16 @@
+---
+- name: Instalar nano y asegurar que ping esté instalado
+  hosts: localhost
+  become: yes  # Para ejecutar comandos con privilegios de sudo
+
+  tasks:
+    - name: Instalar nano y ping
+      apt:
+        name:
+          - nano
+          - iputils-ping
+        state: present
+        update_cache: true
+
+    - name: Enviar ping al DNS de Google
+      shell: ping -c 4 8.8.8.8
